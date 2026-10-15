@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StoryCast — Real People. Real Stories.</title>
+  <meta name="description" content="Watch and listen to accessible documentary films and audio stories from real people, all captioned and transcribed.">
+  <meta property="og:title" content="StoryCast — Real People. Real Stories.">
+  <meta property="og:description" content="Watch and listen to accessible documentary films and audio stories from real people, all captioned and transcribed.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#123C32">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/main.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" hidden aria-hidden="true" focusable="false">
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></symbol>
+<symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="3" width="5" height="18" rx="1" /><rect x="5" y="3" width="5" height="18" rx="1" /></symbol>
+<symbol id="i-captions" viewBox="0 0 24 24"><rect width="18" height="14" x="3" y="5" rx="2" ry="2" /><path d="M7 15h4M15 15h2M7 11h2M13 11h4" /></symbol>
+<symbol id="i-headphones" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3" /></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16" /><path d="M4 12h16" /><path d="M4 19h16" /></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></symbol>
+<symbol id="i-file-text" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /><path d="M14 2v5a1 1 0 0 0 1 1h5" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></symbol>
+<symbol id="i-keyboard" viewBox="0 0 24 24"><path d="M10 8h.01" /><path d="M12 12h.01" /><path d="M14 8h.01" /><path d="M16 12h.01" /><path d="M18 8h.01" /><path d="M6 8h.01" /><path d="M7 16h10" /><path d="M8 12h.01" /><rect width="20" height="16" x="2" y="4" rx="2" /></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></symbol>
+<symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol>
+<symbol id="i-volume-2" viewBox="0 0 24 24"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /><path d="M16 9a5 5 0 0 1 0 6" /><path d="M19.364 18.364a9 9 0 0 0 0-12.728" /></symbol>
+<symbol id="i-volume-x" viewBox="0 0 24 24"><path d="M11 4.702a.7.7 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.7.7 0 0 0 11 19.298z" /><path d="m16.5 14.5 5-5" /><path d="m16.5 9.5 5 5" /></symbol>
+<symbol id="i-maximize" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3" /><path d="M21 8V5a2 2 0 0 0-2-2h-3" /><path d="M3 16v3a2 2 0 0 0 2 2h3" /><path d="M16 21h3a2 2 0 0 0 2-2v-3" /></symbol>
+<symbol id="i-minimize" viewBox="0 0 24 24"><path d="M8 3v3a2 2 0 0 1-2 2H3" /><path d="M21 8h-3a2 2 0 0 1-2-2V3" /><path d="M3 16h3a2 2 0 0 1 2 2v3" /><path d="M16 21v-3a2 2 0 0 1 2-2h3" /></symbol>
+<symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></symbol>
+<symbol id="i-contrast" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 18a6 6 0 0 0 0-12v12z" /></symbol>
+<symbol id="i-monitor-smartphone" viewBox="0 0 24 24"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8" /><path d="M10 19v-3.96 3.15" /><path d="M7 19h5" /><rect width="6" height="10" x="16" y="12" rx="2" /></symbol>
+<symbol id="i-audio-lines" viewBox="0 0 24 24"><path d="M2 10v3" /><path d="M6 6v11" /><path d="M10 3v18" /><path d="M14 8v7" /><path d="M18 5v13" /><path d="M22 10v3" /></symbol>
+</svg>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <div class="site-header__brand">
+      <a class="wordmark" href="index.html" aria-label="StoryCast home">Story<span class="wordmark__accent">Cast</span><span class="wordmark__dot" aria-hidden="true"></span></a>
+    </div>
+
+    <div class="site-header__actions">
+      <a class="btn btn--accent btn--sm site-header__cta" href="story/story-one.html">Discover Stories <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></a>
+      <button class="site-nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" hidden>
+        <span data-icon-open><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg></span>
+        <span data-icon-close hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></span>
+      </button>
+    </div>
+
+    <nav class="site-nav" id="site-nav" aria-label="Primary" data-collapsed="true">
+      <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html" aria-current="page">Home</a></li>
+          <li><a class="site-nav__link" href="story/story-one.html">Explore Stories</a></li>
+          <li><a class="site-nav__link" href="about.html">About &amp; Accessibility</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero section--brand" aria-labelledby="hero-title">
+    <div class="container hero__grid">
+      <div>
+        <p class="eyebrow eyebrow--accent">Documentary storytelling</p>
+        <h1 class="hero__title" id="hero-title">Real People. Real Stories. <span class="hero__accent">No Voice Left Unheard.</span></h1>
+        <p class="hero__text">Discover powerful human experiences through films, audio stories, and the voices that connect us.</p>
+        <div class="hero__actions">
+          <a class="btn btn--accent" href="story/story-one.html"><svg class="icon icon--sm icon--filled" aria-hidden="true" focusable="false"><use href="#i-play"/></svg> Watch Featured Story</a>
+          <a class="btn btn--outline" href="#watch">Explore All Stories <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </div>
+
+      <a class="hero__media" href="story/story-one.html">
+        <figure class="media-frame hero__frame">
+          <img class="media-frame__img" src="assets/images/hero-amara.jpg" alt="Amara, a ceramicist, speaks in her rebuilt workshop" width="1600" height="912">
+          <span class="media-frame__badges"><span class="tag tag--accent">Featured Film</span></span>
+          <span class="media-frame__center"><span class="play-badge play-badge--lg" aria-hidden="true"><svg class="icon icon--filled" aria-hidden="true" focusable="false"><use href="#i-play"/></svg></span></span>
+          <figcaption class="hero__caption">
+            <span class="hero__film-title"><span class="sr-only">Watch </span>A Journey of Courage</span>
+            <span class="hero__runtime"><span class="sr-only">Duration </span>12:04</span>
+          </figcaption>
+        </figure>
+      </a>
+    </div>
+  </section>
+
+  <section class="section container" id="watch" aria-labelledby="watch-title">
+    <div class="section-head">
+      <h2 class="section-head__title" id="watch-title">Watch Their Stories</h2>
+      <p class="section-head__intro">Short documentaries, captioned in English with full transcripts.</p>
+    </div>
+    <div class="watch-grid">
+      <article class="video-preview video-preview--feature">
+  <figure>
+    <a class="video-preview__link" href="story/story-one.html">
+      <span class="sr-only">Watch A Journey of Courage. </span>
+      <div class="media-frame">
+        <img class="media-frame__img" src="assets/images/hero-amara.jpg" alt="" width="1600" height="912" loading="lazy">
+        <span class="media-frame__badges"><span class="tag tag--brand">Resilience</span><span class="tag tag--light"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-captions"/></svg>CC<span class="sr-only"> captions available</span></span></span>
+        <span class="media-frame__center"><span class="play-badge play-badge--lg" aria-hidden="true"><svg class="icon icon--filled" aria-hidden="true" focusable="false"><use href="#i-play"/></svg></span></span>
+        <span class="media-frame__foot"><span class="media-progress" aria-hidden="true"><span class="media-progress__fill"></span></span><span class="media-duration"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>12:04</span></span>
+      </div>
+    </a>
+    <figcaption class="video-preview__caption">
+      <h3 class="video-preview__title">A Journey of Courage</h3>
+      <p class="video-preview__desc">After a fire destroyed her workshop, Amara rebuilt her life — and her community — one bowl at a time.</p>
+    </figcaption>
+  </figure>
+</article>
+      <div class="watch-grid__side">
+        <article class="video-preview">
+  <figure>
+    <a class="video-preview__link" href="story/story-one.html">
+      <span class="sr-only">Watch The Long Road Home. </span>
+      <div class="media-frame">
+        <img class="media-frame__img" src="assets/images/runner-coast.jpg" alt="" width="1280" height="720" loading="lazy">
+        <span class="media-frame__badges"><span class="tag tag--brand">Sport</span><span class="tag tag--light"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-captions"/></svg>CC<span class="sr-only"> captions available</span></span></span>
+        <span class="media-frame__center"><span class="play-badge play-badge--sm" aria-hidden="true"><svg class="icon icon--filled" aria-hidden="true" focusable="false"><use href="#i-play"/></svg></span></span>
+        <span class="media-frame__foot"><span class="media-progress" aria-hidden="true"><span class="media-progress__fill"></span></span><span class="media-duration"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>8:31</span></span>
+      </div>
+    </a>
+    <figcaption class="video-preview__caption">
+      <h3 class="video-preview__title">The Long Road Home</h3>
+      
+    </figcaption>
+  </figure>
+</article>
+        <article class="video-preview">
+  <figure>
+    <a class="video-preview__link" href="story/story-one.html">
+      <span class="sr-only">Watch What Grandpa Remembers. </span>
+      <div class="media-frame">
+        <img class="media-frame__img" src="assets/images/grandfather-grandchildren.jpg" alt="" width="1280" height="720" loading="lazy">
+        <span class="media-frame__badges"><span class="tag tag--brand">Family</span><span class="tag tag--light"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-captions"/></svg>CC<span class="sr-only"> captions available</span></span></span>
+        <span class="media-frame__center"><span class="play-badge play-badge--sm" aria-hidden="true"><svg class="icon icon--filled" aria-hidden="true" focusable="false"><use href="#i-play"/></svg></span></span>
+        <span class="media-frame__foot"><span class="media-progress" aria-hidden="true"><span class="media-progress__fill"></span></span><span class="media-duration"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>6:47</span></span>
+      </div>
+    </a>
+    <figcaption class="video-preview__caption">
+      <h3 class="video-preview__title">What Grandpa Remembers</h3>
+      
+    </figcaption>
+  </figure>
+</article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="audio-title">
+    <div class="container audio-section">
+      <div>
+        <p class="eyebrow">Audio stories</p>
+        <h2 class="audio-section__title" id="audio-title">Listen Beyond the Words</h2>
+        <p class="audio-section__intro">Intimate voice recordings for your commute, your walk, or a quiet moment.</p>
+      </div>
+      <div class="audio-section__list">
+        <article class="audio-card" data-audio-player data-title="Letters from the Harbour">
+  <div class="audio-card__layout">
+    <img class="audio-card__image" src="assets/images/grandfather-grandchildren.jpg" alt="" width="1280" height="720" loading="lazy">
+    <div class="audio-card__body">
+      <p class="audio-card__kicker eyebrow"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-headphones"/></svg> Audio story &middot; 14:20</p>
+      <h3 class="audio-card__title">Letters from the Harbour</h3>
+      <p class="audio-card__desc">A retired fisherman reads the letters he never sent.</p>
+      <audio preload="metadata" controls aria-label="Letters from the Harbour">
+        <source src="assets/audio/letters-from-the-harbour.mp3" type="audio/mpeg">
+        Your browser does not support audio. Read the transcript instead.
+      </audio>
+      <div class="audio-player" data-ap-ui hidden>
+        <button class="audio-player__button" type="button" data-ap-button aria-label="Play Letters from the Harbour" aria-pressed="false"><svg class="icon icon--filled" aria-hidden="true" focusable="false"><use href="#i-play"/></svg></button>
+        <input class="range audio-player__seek" type="range" min="0" max="0" step="0.1" value="0" data-ap-seek aria-label="Seek Letters from the Harbour" aria-valuetext="0 seconds">
+        <span class="audio-player__time" data-ap-time>0:00 / 14:20</span>
+      </div>
+      <details class="disclosure audio-card__transcript">
+        <summary class="disclosure__summary"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-file-text"/></svg> Read transcript <svg class="icon icon--sm icon--chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></summary>
+        <div class="disclosure__content">
+          <p><strong>Fisherman:</strong> Dear Elena. The boats went out at four this morning, and I stayed on the quay, as I always do.</p>
+          <p><strong>Fisherman:</strong> I never posted this one. I told myself the sea had your address by now, and the tide would carry it.</p>
+          <p><strong>Fisherman:</strong> If you ever read this, know that I kept the lamp lit.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</article>
+        <article class="audio-card" data-audio-player data-title="Running Toward Morning">
+  <div class="audio-card__layout">
+    <img class="audio-card__image" src="assets/images/runner-coast.jpg" alt="" width="1280" height="720" loading="lazy">
+    <div class="audio-card__body">
+      <p class="audio-card__kicker eyebrow"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-headphones"/></svg> Audio story &middot; 9:05</p>
+      <h3 class="audio-card__title">Running Toward Morning</h3>
+      <p class="audio-card__desc">Diego on learning to trust his body again.</p>
+      <audio preload="metadata" controls aria-label="Running Toward Morning">
+        <source src="assets/audio/running-toward-morning.mp3" type="audio/mpeg">
+        Your browser does not support audio. Read the transcript instead.
+      </audio>
+      <div class="audio-player" data-ap-ui hidden>
+        <button class="audio-player__button" type="button" data-ap-button aria-label="Play Running Toward Morning" aria-pressed="false"><svg class="icon icon--filled" aria-hidden="true" focusable="false"><use href="#i-play"/></svg></button>
+        <input class="range audio-player__seek" type="range" min="0" max="0" step="0.1" value="0" data-ap-seek aria-label="Seek Running Toward Morning" aria-valuetext="0 seconds">
+        <span class="audio-player__time" data-ap-time>0:00 / 9:05</span>
+      </div>
+      <details class="disclosure audio-card__transcript">
+        <summary class="disclosure__summary"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-file-text"/></svg> Read transcript <svg class="icon icon--sm icon--chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></summary>
+        <div class="disclosure__content">
+          <p><strong>Diego:</strong> The first morning I ran again, I only made it to the second lamppost.</p>
+          <p><strong>Diego:</strong> My body felt like a borrowed coat. It took months before it felt like mine.</p>
+          <p><strong>Diego:</strong> Now I run toward the sunrise. Trust comes one stride at a time.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container split" aria-labelledby="mission-title">
+    <img class="split__image" src="assets/images/community-circle.jpg" alt="A community circle sharing personal stories" width="1600" height="800" loading="lazy">
+    <div>
+      <p class="eyebrow">Why StoryCast exists</p>
+      <h2 class="split__title" id="mission-title">Ordinary lives hold extraordinary truths.</h2>
+      <p class="split__text">We record the stories mainstream media skips — and make sure everyone can watch, hear, or read them.</p>
+    </div>
+  </section>
+
+  <section class="section section--inverse section--compact" aria-labelledby="a11y-title">
+    <div class="container statement">
+      <h2 class="statement__title" id="a11y-title">Built for <span class="statement__accent">every</span> viewer.</h2>
+      <div>
+        <ul class="feature-strip">
+          <li class="feature-strip__item"><svg class="icon icon--accent" aria-hidden="true" focusable="false"><use href="#i-captions"/></svg> Captions on every film</li>
+          <li class="feature-strip__item"><svg class="icon icon--accent" aria-hidden="true" focusable="false"><use href="#i-file-text"/></svg> Full transcripts</li>
+          <li class="feature-strip__item"><svg class="icon icon--accent" aria-hidden="true" focusable="false"><use href="#i-keyboard"/></svg> Keyboard-friendly players</li>
+        </ul>
+        <a class="link-arrow link-arrow--accent statement__link" href="about.html">Read our accessibility commitment <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div>
+      <a class="wordmark wordmark--inverted" href="index.html" aria-label="StoryCast home">Story<span class="wordmark__accent">Cast</span><span class="wordmark__dot" aria-hidden="true"></span></a>
+      <p class="site-footer__blurb">Accessible films, audio and written stories from real people. Every story captioned and transcribed.</p>
+    </div>
+    <nav aria-label="Footer">
+      <h2 class="site-footer__heading">Explore</h2>
+      <ul class="site-footer__list">
+        <li><a class="site-footer__link" href="index.html">Home</a></li>
+        <li><a class="site-footer__link" href="story/story-one.html">Explore Stories</a></li>
+        <li><a class="site-footer__link" href="about.html">About &amp; Accessibility</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h2 class="site-footer__heading">Accessibility</h2>
+      <p class="site-footer__text">Designed to WCAG 2.1 AA. Found a barrier? Tell us at <a class="site-footer__mail" href="mailto:access@storycast.example">access@storycast.example</a>.</p>
+    </div>
+  </div>
+  <div class="site-footer__legal">
+    <div class="container"><p>&copy; 2026 StoryCast. A university storytelling project.</p></div>
+  </div>
+</footer>
+<script src="js/nav.js"></script>
+<script src="js/format.js"></script>
+<script src="js/audio-player.js"></script>
+</body>
+</html>
