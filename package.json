@@ -1,0 +1,23 @@
+{
+  "name": "storycast",
+  "version": "1.0.0",
+  "description": "StoryCast — an accessible audio/video storytelling microsite (HTML, Sass, vanilla JS)",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass sass/main.scss css/main.css --style=expanded --no-source-map",
+    "watch": "sass --watch sass/main.scss css/main.css --style=expanded",
+    "serve": "http-server . -p 8080 -c-1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource-variable/public-sans": "^5.3.0",
+    "axe-core": "^4.14.0",
+    "http-server": "^14.1.1",
+    "lucide-static": "^1.57.0",
+    "sass": "^1.105.1"
+  },
+  "private": true
+}
