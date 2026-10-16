@@ -1,0 +1,24 @@
+@use '../mixins' as m;
+
+// .eyebrow — small uppercase label above headings
+.eyebrow {
+  @include m.eyebrow;
+  color: var(--color-bg-brand);
+
+  &--accent { color: var(--color-accent); }
+}
+
+// .tag — pill-ish label used on media (category, CC, Featured Film).
+// Always carries a text label, never colour alone.
+.tag {
+  @include m.eyebrow;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: var(--radius-sm);
+
+  &--brand { background: var(--color-bg-brand); color: var(--color-text-on-brand); }
+  &--light { background: var(--color-bg); color: var(--color-text); }
+  &--accent { background: var(--color-accent); color: var(--color-on-accent); }
+}

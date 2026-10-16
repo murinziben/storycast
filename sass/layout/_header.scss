@@ -1,0 +1,117 @@
+@use '../mixins' as m;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--color-bg) 96%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+
+  // Mobile: brand + actions on row one, collapsible nav on row two.
+  // Desktop: brand | nav | actions on a single row.
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: 'brand actions' 'nav nav';
+    align-items: center;
+    column-gap: var(--space-6);
+
+    @include m.up('md') {
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas: 'brand nav actions';
+    }
+  }
+
+  &__brand { grid-area: brand; min-height: var(--header-height); display: flex; align-items: center; }
+  &__actions { grid-area: actions; display: flex; align-items: center; gap: var(--space-2); }
+
+  // The "Discover Stories" CTA is hidden on the smallest screens
+  &__cta { display: none; @include m.up('sm') { display: inline-flex; } }
+}
+
+// Skip link — first focusable element on every page
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -4rem;
+  z-index: 100;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-weight: var(--fw-bold);
+  border-radius: var(--radius-md);
+
+  &:focus { top: var(--space-4); }
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-bg-brand);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+
+  &__dot {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-left: 0.15rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    // Outline keeps the lime dot visible on the off-white header
+    box-shadow: 0 0 0 1.5px var(--color-bg-brand);
+  }
+
+  // Inverted variant for dark footers
+  &--inverted { color: var(--color-text-on-brand); .wordmark__accent { color: var(--color-accent); } }
+  &--inverted .wordmark__dot { box-shadow: none; }
+}
+
+// Primary navigation ------------------------------------------------------
+.site-nav {
+  grid-area: nav;
+  border-top: 1px solid var(--color-border);
+
+  // With JS, the mobile nav starts collapsed and is toggled by the button.
+  // Without JS it stays open (progressive enhancement).
+  .js &[data-collapsed='true'] { display: none; }
+
+  &__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--touch-target);
+    height: var(--touch-target);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    @include m.up('md') { display: none; }
+  }
+
+  &__list { display: flex; flex-direction: column; padding-block: var(--space-2); }
+
+  &__link {
+    display: block;
+    padding-block: var(--space-3);
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+
+    &:hover { border-bottom-color: var(--color-bg-brand); }
+    &[aria-current='page'] { color: var(--color-bg-brand); border-bottom-color: var(--color-bg-brand); }
+  }
+
+  @include m.up('md') {
+    border: 0;
+    justify-self: center;
+    // Desktop nav is always visible regardless of the toggle state
+    .js &[data-collapsed='true'] { display: block; }
+
+    &__list { flex-direction: row; align-items: center; gap: var(--space-8); padding: 0; }
+    &__link { padding-block: var(--space-1); font-size: var(--fs-sm); }
+  }
+}

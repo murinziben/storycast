@@ -1,0 +1,86 @@
+@use '../mixins' as m;
+
+// ==========================================================================
+// .audio-card — THE CONTAINER-QUERY COMPONENT
+// The card does not care how wide the *viewport* is, only how wide the space
+// it has been given is. In a narrow column it stacks (image on top); once its
+// container reaches 28rem it switches to a horizontal layout. The same card
+// therefore works in the home-page sidebar, a full-width row, or a future
+// related-stories rail without any extra modifier classes.
+// ==========================================================================
+.audio-card {
+  container: audio-card / inline-size;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  overflow: hidden;
+
+  &__layout { display: flex; flex-direction: column; }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  &__body { display: flex; flex-direction: column; flex: 1; gap: var(--space-3); padding: var(--space-5); }
+  &__kicker { display: flex; align-items: center; gap: var(--space-2); color: var(--color-bg-brand); }
+  &__title { font-size: var(--fs-lg); line-height: var(--lh-snug); }
+  &__desc { font-size: var(--fs-sm); color: var(--color-text-muted); }
+  &__transcript { margin-top: var(--space-1); }
+}
+
+// Container query: switch from stacked to side-by-side at 28rem (448px)
+@container audio-card (min-width: 28rem) {
+  .audio-card__layout { flex-direction: row; }
+  .audio-card__image { width: 10rem; aspect-ratio: 1; flex: none; height: auto; }
+}
+
+// Compact audio player ------------------------------------------------------
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: auto;
+
+  &__button {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    width: var(--touch-target);
+    height: var(--touch-target);
+    border-radius: 50%;
+    background: var(--color-bg-brand);
+    color: var(--color-text-on-brand);
+    transition: background-color 0.2s;
+
+    &:hover { background: var(--color-bg-inverse); }
+  }
+
+  &__seek { flex: 1; min-width: 0; --range-fill: var(--color-bg-brand); --range-track: #7f9585; }
+  &__time { font-size: var(--fs-xs); font-weight: var(--fw-semibold); font-variant-numeric: tabular-nums; color: var(--color-text-muted); white-space: nowrap; }
+}
+
+// Transcript disclosure under each audio story
+.disclosure {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-3);
+
+  &__summary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: var(--touch-target);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-sm);
+    color: var(--color-bg-brand);
+    cursor: pointer;
+
+    &::marker { content: ''; }
+    &::-webkit-details-marker { display: none; }
+    .icon--chevron { transition: transform 0.2s; }
+  }
+
+  &[open] &__summary .icon--chevron { transform: rotate(180deg); }
+  &__content { padding-block: var(--space-2) var(--space-3); font-size: var(--fs-sm); display: grid; gap: var(--space-2); }
+}

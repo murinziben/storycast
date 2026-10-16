@@ -1,0 +1,60 @@
+@use '../mixins' as m;
+
+// Accessibility feature lists: a compact strip (home) and a grid (about)
+.feature-strip {
+  display: grid;
+  gap: var(--space-6);
+
+  @include m.up('sm') { grid-template-columns: repeat(3, 1fr); }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding-left: var(--space-4);
+    border-left: 2px solid var(--color-accent);
+    font-weight: var(--fw-semibold);
+  }
+}
+
+// 1px gaps over a border-coloured background produce hairline cell borders
+.feature-grid {
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-border);
+
+  @include m.up('sm') { grid-template-columns: repeat(2, 1fr); }
+  @include m.up('lg') { grid-template-columns: repeat(3, 1fr); }
+
+  &__item { padding: var(--space-7); background: var(--color-bg); }
+  &__title { margin-top: var(--space-4); font-size: var(--fs-lg); }
+  &__desc { margin-top: var(--space-2); color: var(--color-text-muted); }
+}
+
+// Call-to-action band
+.cta-band {
+  display: grid;
+  gap: var(--space-8);
+  padding: var(--space-10);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-brand);
+  color: var(--color-text-on-brand);
+
+  @include m.up('md') { grid-template-columns: 2fr 1fr; align-items: center; padding: var(--space-14); }
+
+  &__title { font-size: var(--fs-4xl); line-height: var(--lh-tight); }
+  &__text { margin-top: var(--space-3); color: var(--color-text-on-brand-muted); }
+  &__actions { display: flex; flex-direction: column; gap: var(--space-3); }
+}
+
+.pull-quote {
+  margin-top: var(--space-8);
+  padding-left: var(--space-5);
+  border-left: 4px solid var(--color-accent);
+  // Lime alone is too light on off-white; the forest ink inside keeps contrast
+  &__text { font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: var(--fw-bold); line-height: var(--lh-snug); }
+  &__cite { display: block; margin-top: var(--space-2); font-size: var(--fs-sm); font-style: normal; color: var(--color-text-muted); }
+}

@@ -1,0 +1,35 @@
+@use '../mixins' as m;
+
+// .article — long-form reading column for the story page
+.article {
+  &__title { margin-top: var(--space-3); font-size: var(--fs-5xl); line-height: var(--lh-tight); }
+  &__lede { margin-top: var(--space-6); font-size: var(--fs-lg); line-height: var(--lh-relaxed); }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-8);
+    margin-top: var(--space-6);
+    padding-block: var(--space-4);
+    border-block: 1px solid var(--color-border);
+    font-size: var(--fs-sm);
+
+    dt { color: var(--color-text-muted); }
+    dd { margin: 0; font-weight: var(--fw-semibold); }
+  }
+
+  &__body { margin-top: var(--space-8); max-width: var(--measure); font-size: var(--fs-md); line-height: var(--lh-relaxed); display: grid; gap: var(--space-5); }
+}
+
+// Sage information panel (accessibility on this story, etc.)
+.panel {
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-alt);
+
+  &__title { font-size: var(--fs-lg); }
+  &__list { margin-top: var(--space-4); display: grid; gap: var(--space-4); font-size: var(--fs-sm); }
+  &__item { display: flex; gap: var(--space-3); }
+  &__item .icon { margin-top: 0.1rem; color: var(--color-bg-brand); }
+  &__item strong { display: block; }
+}

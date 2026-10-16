@@ -1,0 +1,94 @@
+@use '../mixins' as m;
+
+// .video-player — custom, fully keyboard-operable controls around a native
+// <video>. Controls sit in a bar *below* the picture (not overlaid) so they
+// never cover the burned-in caption text.
+// Without JavaScript the native `controls` attribute remains, so the video is
+// still playable.
+.video-player {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-on-brand);
+
+  &__stage { position: relative; background: #000; }
+
+  &__video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    object-fit: contain;
+
+    // Caption styling — dark box, white text, ≥ 7:1
+    &::cue {
+      background-color: rgb(10 14 12 / 0.88);
+      color: #fff;
+      font-family: var(--font-text);
+      font-size: 1.1rem;
+    }
+  }
+
+  // Large centred play button shown before first play
+  &__big-play {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgb(10 24 20 / 0.4);
+    transition: background-color 0.2s;
+
+    &:hover { background: rgb(10 24 20 / 0.25); }
+    &:focus-visible { outline-offset: -6px; box-shadow: none; }
+  }
+
+  &__controls { padding: var(--space-2) var(--space-3) var(--space-3); }
+  &__seek { display: block; }
+
+  &__row { display: flex; align-items: center; gap: var(--space-1); flex-wrap: wrap; }
+  &__spacer { flex: 1; }
+
+  &__button {
+    display: inline-grid;
+    place-items: center;
+    width: var(--touch-target);
+    height: var(--touch-target);
+    border-radius: var(--radius-md);
+    color: var(--color-text-on-brand);
+    transition: background-color 0.2s;
+
+    &:hover { background: rgb(247 247 240 / 0.15); }
+
+    // Pressed state is shown with colour AND a changed icon / label,
+    // never colour alone.
+    &[aria-pressed='true'] { background: var(--color-accent); color: var(--color-on-accent); }
+  }
+
+  &__time {
+    margin-left: var(--space-2);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    font-variant-numeric: tabular-nums;
+  }
+
+  // Fullscreen: let the stage fill the screen with controls pinned underneath
+  &:fullscreen {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+
+    .video-player__stage { flex: 1; min-height: 0; }
+    .video-player__video { height: 100%; aspect-ratio: auto; }
+  }
+}
+
+.player-hint { margin-top: var(--space-3); font-size: var(--fs-sm); color: var(--color-text-on-brand-muted); }
+.kbd {
+  display: inline-block;
+  padding: 0 0.4em;
+  border: 1px solid rgb(247 247 240 / 0.5);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-text);
+  font-size: 0.85em;
+  font-weight: var(--fw-bold);
+  line-height: 1.5;
+}

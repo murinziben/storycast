@@ -1,0 +1,56 @@
+@use '../mixins' as m;
+
+// .btn — base button/link-button. Variants: --accent (primary CTA), --outline
+// (secondary on dark), --brand (solid forest), --sm.
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--touch-target);
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s, border-color 0.2s;
+
+  &--accent {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+    border-color: rgb(18 60 50 / 0.2);
+
+    &:hover { transform: translateY(-2px); }
+  }
+
+  &--outline {
+    border-color: rgb(247 247 240 / 0.6);
+    color: var(--color-text-on-brand);
+
+    &:hover { background: rgb(247 247 240 / 0.12); }
+  }
+
+  &--brand {
+    background: var(--color-bg-brand);
+    color: var(--color-text-on-brand);
+
+    &:hover { background: var(--color-bg-inverse); }
+  }
+
+  &--sm { padding: var(--space-2) var(--space-4); font-size: var(--fs-sm); }
+
+  @media (prefers-reduced-motion: reduce) { &--accent:hover { transform: none; } }
+}
+
+// Text link with arrow, used for in-content navigation
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: var(--fw-bold);
+  text-underline-offset: 4px;
+
+  &--accent { color: var(--color-accent); }
+  &:not(:hover) { text-decoration: none; }
+}

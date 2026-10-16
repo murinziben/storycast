@@ -1,0 +1,13 @@
+// .video-preview — a playable-looking video card (thumbnail, play button,
+// duration, CC indicator) that links to the story page.
+.video-preview {
+  &__link { display: block; text-decoration: none; }
+
+  &__caption { margin-top: var(--space-3); }
+  &__title { font-size: var(--fs-md); font-weight: var(--fw-bold); }
+  &__desc { margin-top: var(--space-1); font-size: var(--fs-sm); color: var(--color-text-muted); }
+
+  // Large feature variant: bigger heading
+  &--feature &__title { font-size: var(--fs-2xl); }
+  &--feature &__desc { font-size: var(--fs-base); }
+}

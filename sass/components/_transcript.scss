@@ -1,0 +1,20 @@
+@use '../mixins' as m;
+
+// .transcript — speaker-labelled text transcript with show-more toggle
+.transcript {
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+
+  @include m.up('md') { padding: var(--space-8); }
+
+  &__title { display: flex; align-items: center; gap: var(--space-2); font-size: var(--fs-3xl); }
+
+  &__lines { margin-top: var(--space-6); max-width: var(--measure); display: grid; gap: var(--space-4); }
+
+  &__line { display: grid; gap: var(--space-1); @include m.up('sm') { grid-template-columns: 8rem 1fr; } }
+  &__speaker { @include m.eyebrow; padding-top: 0.25rem; color: var(--color-bg-brand); }
+  &__text { margin: 0; line-height: var(--lh-relaxed); }
+  &__toggle { margin-top: var(--space-6); .icon { transition: transform 0.2s; } &[aria-expanded='true'] .icon { transform: rotate(180deg); } }
+}
