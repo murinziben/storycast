@@ -1,0 +1,10 @@
+@use 'mixins' as m;
+
+// Helpers with the highest priority (last cascade layer)
+.sr-only { @include m.visually-hidden; }
+.tabular { font-variant-numeric: tabular-nums; }
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.mt-10 { margin-top: var(--space-10); }
+.text-accent { color: var(--color-accent); }

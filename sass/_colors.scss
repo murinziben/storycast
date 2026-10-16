@@ -1,0 +1,52 @@
+// ==========================================================================
+// _colors.scss — colour tokens
+// Brand palette from the StoryCast Figma design. Contrast ratios are listed
+// next to every text/background pairing that is used in the UI (WCAG 2.1 AA
+// needs 4.5:1 for body text and 3:1 for large text and UI components).
+// ==========================================================================
+
+@use 'sass:map';
+
+$brand: (
+  'forest':   #123c32,
+  'lime':     #c7f36b,
+  'off-white': #f7f7f0,
+  'charcoal': #202522,
+  'sage':     #dce5d9,
+);
+
+$neutral: (
+  // Muted body copy on off-white / sage  (7.6:1 on off-white, 6.4:1 on sage)
+  'text-muted':   #435049,
+  // Light text on forest / charcoal       (9.6:1 on forest)
+  'on-dark-muted': #c4d6cb,
+  // Decorative hairlines and borders (not relied on to convey meaning)
+  'border':       #c3d1c4,
+  // Pure card surface
+  'card':         #fcfcf8,
+  // Darkened overlay used behind text on photography
+  'scrim':        rgb(10 24 20 / 0.62),
+);
+
+// Flat map used to generate the CSS custom properties in base/_tokens.scss
+$colors: map.merge($brand, $neutral);
+
+// Semantic roles — what each colour is *for*. Components use these names,
+// never the raw brand names, so a re-theme only touches this map.
+$roles: (
+  'bg':            'off-white',
+  'bg-alt':        'sage',
+  'bg-brand':      'forest',
+  'bg-inverse':    'charcoal',
+  'surface':       'card',
+  'text':          'charcoal',
+  'text-muted':    'text-muted',
+  'text-on-brand': 'off-white',
+  'text-on-brand-muted': 'on-dark-muted',
+  'accent':        'lime',
+  'on-accent':     'charcoal',
+  'border':        'border',
+  'focus':         'lime',
+  'focus-halo':    'forest',
+  'scrim':         'scrim',
+);

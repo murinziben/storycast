@@ -1,0 +1,35 @@
+// Turns the Sass token maps into CSS custom properties so components can use
+// var(--…) and JS/DevTools can inspect them. Lives in the `tokens` layer.
+@use 'sass:map';
+@use '../colors';
+@use '../typography' as t;
+@use '../spacing' as s;
+
+:root {
+  // Raw palette
+  @each $name, $value in colors.$colors {
+    --palette-#{$name}: #{$value};
+  }
+
+  // Semantic colour roles → palette
+  @each $role, $palette in colors.$roles {
+    --color-#{$role}: var(--palette-#{$palette});
+  }
+
+  // Type
+  --font-display: #{t.$font-display};
+  --font-text: #{t.$font-text};
+  @each $name, $value in t.$font-sizes { --fs-#{$name}: #{$value}; }
+  @each $name, $value in t.$font-weights { --fw-#{$name}: #{$value}; }
+  @each $name, $value in t.$line-heights { --lh-#{$name}: #{$value}; }
+  @each $name, $value in t.$tracking { --tracking-#{$name}: #{$value}; }
+  --measure: #{t.$measure};
+
+  // Spacing, radius, sizing
+  @each $name, $value in s.$space { --space-#{$name}: #{$value}; }
+  @each $name, $value in s.$radius { --radius-#{$name}: #{$value}; }
+  --container-max: #{s.$container-max};
+  --gutter: #{s.$gutter-mobile};
+  --touch-target: #{s.$touch-target};
+  --header-height: #{s.$header-height};
+}

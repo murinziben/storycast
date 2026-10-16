@@ -1,0 +1,41 @@
+// ==========================================================================
+// _mixins.scss — reusable mixins
+// ==========================================================================
+@use 'sass:map';
+@use 'spacing' as sp;
+
+// Mobile-first viewport breakpoint
+@mixin up($key) {
+  @media (min-width: map.get(sp.$breakpoints, $key)) { @content; }
+}
+
+// Visible keyboard focus: a lime ring with a forest halo so it is visible on
+// both light (off-white/sage) and dark (forest/charcoal) surfaces — 3:1+.
+@mixin focus-ring {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px var(--color-focus-halo);
+}
+
+// Hide visually but keep available to assistive technology
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Small caps-style label used for categories and eyebrows
+@mixin eyebrow {
+  font-family: var(--font-text);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  line-height: 1.2;
+}

@@ -1,0 +1,48 @@
+@use '../mixins' as m;
+
+html {
+  @media (prefers-reduced-motion: no-preference) { scroll-behavior: smooth; }
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-text);
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  // Layout: footer sticks to the bottom on short pages
+  display: flex;
+  flex-direction: column;
+}
+
+main { flex: 1 0 auto; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--lh-snug);
+}
+
+// One consistent, high-visibility focus style for every interactive element
+:focus-visible {
+  @include m.focus-ring;
+  border-radius: var(--radius-sm);
+}
+:focus:not(:focus-visible) { outline: none; }
+
+// Respect users who ask for less motion
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// Windows High Contrast / forced colours: keep focus and borders visible
+@media (forced-colors: active) {
+  :focus-visible { outline: 3px solid Highlight; box-shadow: none; }
+}

@@ -1,0 +1,60 @@
+// ==========================================================================
+// main.scss — StoryCast stylesheet entry point
+//
+// Cascade layers declare priority explicitly, lowest → highest, so a utility
+// always beats a component and a component always beats base styles no matter
+// where the rules appear in the source:
+//   reset < tokens < base < layout < components < pages < utilities
+//
+// Class naming follows BEM:  .block  .block__element  .block--modifier
+// Design tokens live in _colors / _typography / _spacing (Sass maps) and are
+// emitted as CSS custom properties by base/_tokens.
+// ==========================================================================
+@use 'sass:meta';
+
+@layer reset, tokens, base, layout, components, pages, utilities;
+
+// @font-face rules are not part of the cascade, so they sit outside a layer
+@include meta.load-css('base/fonts');
+
+@layer reset {
+  @include meta.load-css('base/reset');
+}
+
+@layer tokens {
+  @include meta.load-css('base/tokens');
+}
+
+@layer base {
+  @include meta.load-css('base/base');
+}
+
+@layer layout {
+  @include meta.load-css('layout/container');
+  @include meta.load-css('layout/header');
+  @include meta.load-css('layout/footer');
+}
+
+@layer components {
+  @include meta.load-css('components/icon');
+  @include meta.load-css('components/button');
+  @include meta.load-css('components/tag');
+  @include meta.load-css('components/media-frame');
+  @include meta.load-css('components/video-preview');
+  @include meta.load-css('components/audio-card');
+  @include meta.load-css('components/range');
+  @include meta.load-css('components/video-player');
+  @include meta.load-css('components/transcript');
+  @include meta.load-css('components/article');
+  @include meta.load-css('components/feature');
+}
+
+@layer pages {
+  @include meta.load-css('pages/home');
+  @include meta.load-css('pages/story');
+  @include meta.load-css('pages/about');
+}
+
+@layer utilities {
+  @include meta.load-css('utilities');
+}
