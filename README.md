@@ -9,7 +9,7 @@ A 3-page microsite for audio and video documentary storytelling, built with **se
 | About & Accessibility | `about.html` |
 
 **Live site:** _add your GitHub Pages / hosting URL here_
-**Wireframes (Figma):** _add link_ · **High-fidelity mockups (Figma):** _add link_
+**Wireframes (Figma, page 2):** https://www.figma.com/design/peUIbsy5zzb8otJ0jKyz95?node-id=1-2 · **High-fidelity mockups (Figma, page 3):** https://www.figma.com/design/peUIbsy5zzb8otJ0jKyz95?node-id=1-3 · **Design system (Figma, page 1):** https://www.figma.com/design/peUIbsy5zzb8otJ0jKyz95?node-id=0-1
 
 ---
 
@@ -42,7 +42,7 @@ storycast/
 │   └── transcript.js           Show/hide full transcript
 ├── assets/
 │   ├── images/                 Documentary photography + favicon
-│   ├── video/                  Film (mp4 + webm)
+│   ├── video/                  Films (mp4)
 │   ├── audio/                  Audio stories (mp3)
 │   ├── captions/               WebVTT caption track(s)
 │   ├── transcripts/            Plain-text transcripts for every video/audio story
@@ -79,7 +79,7 @@ The compiled `css/main.css` is committed, so the site also works on any static h
 | Requirement | How it is met |
 | --- | --- |
 | **Semantic HTML5** | `header`, `nav`, `main`, `section` (each labelled by its heading), `article`, `aside`, `figure`/`figcaption`, `footer`, `time`, `dl` for metadata and transcripts, `details`/`summary` for audio transcripts. One `h1` per page and no skipped heading levels. |
-| **Captions for video** | `<track kind="captions" srclang="en" default>` pointing at `assets/captions/a-journey-of-courage.en.vtt`. Captions are on by default and have a CC toggle (`aria-pressed`). Caption text is styled with `::cue` (white on near-black). |
+| **Captions for video** | `<track kind="captions" srclang="en" default>` pointing at `assets/captions/<story>.en.vtt`. Captions are on by default and have a CC toggle (`aria-pressed`). Caption text is styled with `::cue` (white on near-black). |
 | **Transcripts for all audio/video** | The film has an on-page speaker-labelled transcript (“Read Transcript”) plus a downloadable `.txt`. Each audio story has an expandable on-page transcript and a `.txt` in `assets/transcripts/`. |
 | **Figure descriptions** | The video is wrapped in a `<figure>` whose `<figcaption>` describes the scene and lists shortcuts. |
 | **Colour contrast (AA)** | All text pairs ≥ 7.8:1 on light surfaces and ≥ 8:1 on dark surfaces (body text needs 4.5:1). Lime is only ever used as a fill or on dark backgrounds. Seek-bar track is ≥ 3:1. See the table in the research PDF. |
@@ -101,10 +101,20 @@ The compiled `css/main.css` is committed, so the site also works on any static h
 
 ## Media note
 
-The film and the two audio stories included in `assets/` are **silent placeholders** whose lengths match the durations shown in the design (12:04, 14:20, 9:05); the film shows the still poster image. The captions (`.vtt`) and transcripts are real text and will play in sync with the first minute of the film. Replace the files in `assets/video` and `assets/audio` with your final media (keep the filenames, or update the `<source>` tags) and update the `.vtt` to match.
+Two real films are used, one per story page:
+
+| Page | Film | Length | Captions / transcript |
+|---|---|---|---|
+| `story/story-one.html` | *SHE Creates Change* (Dewmini's story), presented by Room to Read | 5:41 | `she-creates-change.en.vtt`, `she-creates-change.txt` |
+| `story/story-two.html` | *Mother Hood* (trailer) | 1:41 | `mother-hood.en.vtt`, `mother-hood.txt` |
+
+The captions and transcripts were written from the subtitles and title cards burned into the videos (read from the video frames and checked by hand), because no speech-recognition model could be used. Timings are accurate to about half a second. In *SHE Creates Change* the animated section (1:40 to 5:35) has no dialogue subtitles, so it is described in the transcript but not captioned; a human review of the audio is recommended before public release.
+
+The two audio stories (`assets/audio/*.mp3`) are still **silent placeholders** and their descriptions are illustrative. Replace them with real audio and update the transcripts.
 
 ## Credits
 
 - Typefaces: Bricolage Grotesque and Public Sans (SIL Open Font License), self-hosted via Fontsource.
 - Icons: Lucide (ISC licence).
 - Photography: placeholder documentary imagery supplied with the Lovable design — replace or credit as appropriate before public release.
+- Video: *SHE Creates Change* is by Room to Read, in association with the Troper Wojcicki Foundation (executive producers Brenda Chapman, Jill Culton, Freida Pinto, Dr. Geetha Murali, Nexus Studios). *Mother Hood* trailer: source and credit to be added by the project team. Both videos are used here for a non-commercial university assignment; confirm permission before any public release.
