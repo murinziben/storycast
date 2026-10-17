@@ -1,0 +1,33 @@
+@use '../mixins' as m;
+
+// Forest band holding the player
+.player-band {
+  padding-block: var(--space-8) var(--space-10);
+  background: var(--color-bg-brand);
+  color: var(--color-text-on-brand);
+
+  &__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); font-size: var(--fs-sm); font-weight: var(--fw-semibold); }
+}
+
+// Article + sticky accessibility sidebar
+.story-layout {
+  display: grid;
+  gap: var(--space-14);
+  padding-block: var(--space-16);
+
+  @include m.up('lg') { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+
+  &__aside { @include m.up('lg') { position: sticky; top: calc(var(--header-height) + var(--space-6)); align-self: start; } }
+  &__transcript { margin-top: var(--space-14); }
+}
+
+.related {
+  padding-block: var(--space-16);
+  border-top: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-bg-alt) 50%, var(--color-bg));
+
+  &__title { font-size: var(--fs-3xl); }
+  &__grid { display: grid; gap: var(--space-8); margin-top: var(--space-8); @include m.up('md') { grid-template-columns: 1fr 1fr; } }
+}
+
+.player-band__cc { display: inline-flex; align-items: center; gap: var(--space-2); }

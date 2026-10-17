@@ -1,0 +1,81 @@
+@use '../mixins' as m;
+
+// Hero ----------------------------------------------------------------------
+.hero {
+  &__grid {
+    display: grid;
+    align-items: center;
+    gap: var(--space-10);
+    padding-block: var(--space-14);
+
+    @include m.up('lg') { grid-template-columns: 5fr 7fr; padding-block: var(--space-20); }
+  }
+
+  &__title { margin-top: var(--space-4); font-size: var(--fs-display); line-height: var(--lh-tight); }
+  &__accent { color: var(--color-accent); }
+  &__text { margin-top: var(--space-6); max-width: 28rem; font-size: var(--fs-md); color: var(--color-text-on-brand-muted); }
+  &__actions { margin-top: var(--space-8); display: flex; flex-wrap: wrap; gap: var(--space-3); }
+
+  &__media { text-decoration: none; display: block; }
+  &__frame { box-shadow: 0 0 0 1px rgb(247 247 240 / 0.2); }
+  &__caption {
+    position: absolute;
+    z-index: 1;
+    inset: auto var(--space-4) var(--space-4);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-4);
+    color: var(--color-text-on-brand);
+  }
+  &__film-title { font-family: var(--font-display); font-size: var(--fs-xl); font-weight: var(--fw-bold); }
+  &__runtime { padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); background: rgb(32 37 34 / 0.85); font-size: var(--fs-sm); font-weight: var(--fw-semibold); font-variant-numeric: tabular-nums; }
+}
+
+// "Watch Their Stories": one large feature + two stacked small previews
+.watch-grid {
+  display: grid;
+  gap: var(--space-8);
+  margin-top: var(--space-10);
+
+  @include m.up('lg') { grid-template-columns: 2fr 1fr; }
+
+  &__side { display: grid; gap: var(--space-8); @include m.up('sm') { grid-template-columns: 1fr 1fr; } @include m.up('lg') { grid-template-columns: 1fr; } }
+}
+
+// "Listen Beyond the Words": heading column + stacked audio cards
+.audio-section {
+  display: grid;
+  gap: var(--space-10);
+
+  @include m.up('lg') { grid-template-columns: 1fr 2fr; }
+
+  &__title { margin-top: var(--space-3); font-size: var(--fs-4xl); line-height: var(--lh-tight); }
+  &__intro { margin-top: var(--space-4); color: var(--color-text-muted); }
+  &__list { display: grid; gap: var(--space-6); }
+}
+
+// Mission split ---------------------------------------------------------------
+.split {
+  display: grid;
+  align-items: center;
+  gap: var(--space-10);
+
+  @include m.up('md') { grid-template-columns: 1fr 1fr; }
+
+  &__image { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-md); }
+  &__title { margin-top: var(--space-3); font-size: var(--fs-4xl); line-height: var(--lh-tight); }
+  &__text { margin-top: var(--space-4); font-size: var(--fs-md); line-height: var(--lh-relaxed); color: var(--color-text-muted); }
+}
+
+// Accessibility statement band
+.statement {
+  display: grid;
+  gap: var(--space-10);
+
+  @include m.up('md') { grid-template-columns: 1fr 2fr; align-items: center; }
+
+  &__title { font-size: var(--fs-3xl); line-height: var(--lh-tight); }
+  &__accent { color: var(--color-accent); }
+  &__link { margin-top: var(--space-8); }
+}
