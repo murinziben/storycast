@@ -1,6 +1,6 @@
-# StoryCast Accessible Media Feature Microsite
+# StoryCast — Accessible Media Feature Microsite
 
-A 3-page microsite for audio and video documentary storytelling, built with **semantic HTML5, Sass and a little vanilla JavaScript no frameworks**. Designed in Figma (forest green · lime · off-white · charcoal · sage) and built to WCAG 2.1 AA.
+A 3-page microsite for audio and video documentary storytelling, built with **semantic HTML5, Sass and a little vanilla JavaScript — no frameworks**. Designed in Figma (forest green · lime · off-white · charcoal · sage) and built to WCAG 2.1 AA.
 
 | Page | File |
 | --- | --- |
@@ -8,17 +8,9 @@ A 3-page microsite for audio and video documentary storytelling, built with **se
 | Story detail | `story/story-one.html` |
 | About & Accessibility | `about.html` |
 
-**Live site:** _add your GitHub Pages / hosting URL here_
+**Live site:** https://murinziben.github.io/storycast/
+**Wireframes (Figma, page 2):** https://www.figma.com/design/peUIbsy5zzb8otJ0jKyz95?node-id=1-2 · **High-fidelity mockups (Figma, page 3):** https://www.figma.com/design/peUIbsy5zzb8otJ0jKyz95?node-id=1-3 · **Design system (Figma, page 1):** https://www.figma.com/design/peUIbsy5zzb8otJ0jKyz95?node-id=0-1
 
-**Wireframes (Figma, page 2):** https://www.figma.com/design/peUIbsy5zzb8otJ0jKyz95?node-id=1-2 ·
-
-**High-fidelity mockups (Figma, page 3):** https://www.figma.com/design/peUIbsy5zzb8otJ0jKyz95?node-id=1-3 · 
-
-**Design system (Figma, page 1):** https://www.figma.com/design/peUIbsy5zzb8otJ0jKyz95?node-id=0-1
-
-**Sitemap (Figma, sitemap):** https://www.figma.com/board/g9h4KIZrh34tM6I9CoK2hp/StoryCast-Sitemap?node-id=0-1&t=P771abOiUe25rnIC-1 
-
-**Research Document (PDF):** https://github.com/murinziben/storycast/blob/main/docs/StoryCast-Research-Document.pdf
 ---
 
 ## Project structure
@@ -55,7 +47,7 @@ storycast/
 │   ├── captions/               WebVTT caption track(s)
 │   ├── transcripts/            Plain-text transcripts for every video/audio story
 │   └── fonts/                  Self-hosted Bricolage Grotesque + Public Sans
-└── docs/                       Sitemap (png) and research document (PDF)
+└── docs/                       Sitemap (svg/png) and research document (PDF)
 ```
 
 ## Running locally
@@ -82,7 +74,7 @@ The compiled `css/main.css` is committed, so the site also works on any static h
 - **Container query:** `.audio-card` (`sass/components/_audio-card.scss`) declares `container-type: inline-size` and switches from stacked to side-by-side when *its own* width reaches 28rem — independent of the viewport.
 - **Progressive enhancement:** every interactive widget works without JS (native video/audio controls, full transcript visible, nav open). JS upgrades them.
 
-## Accessibility checklist how each requirement is met
+## Accessibility checklist — how each requirement is met
 
 | Requirement | How it is met |
 | --- | --- |
@@ -118,7 +110,7 @@ Two real films are used, one per story page:
 
 The captions and transcripts were written from the subtitles and title cards burned into the videos (read from the video frames and checked by hand), because no speech-recognition model could be used. Timings are accurate to about half a second. In *SHE Creates Change* the animated section (1:40 to 5:35) has no dialogue subtitles, so it is described in the transcript but not captioned; a human review of the audio is recommended before public release.
 
-The two audio stories (`assets/audio/*.mp3`) are still **silent placeholders** and their descriptions are illustrative. Replace them with real audio and update the transcripts.
+The audio section now holds one real recording, *Psychology of Resilience* (`assets/audio/psychology-of-resilience.mp3`, 18:56). Its **transcript is still to be added** and its **source and licence still need to be confirmed and credited** before public release. The two earlier silent placeholder stories were removed.
 
 ## Credits
 
